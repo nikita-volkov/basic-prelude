@@ -114,6 +114,7 @@ module CorePrelude
     , Data.Function.on
     , Data.Ord.comparing
     , equating
+    , Down(..)
       -- ** Applicative
     , Control.Applicative.Applicative (..)
     , (Control.Applicative.<$>)
@@ -220,3 +221,15 @@ equating = Data.Function.on (Prelude.==)
 
 getArgs :: Prelude.IO [Text]
 getArgs = Data.List.map Data.Text.pack <$> System.Environment.getArgs
+
+
+-- | The 'Down' type allows you to reverse sort order conveniently. A value of 
+-- type @'Down' a@ contains a value of type @a@ (represented as @'Down' a@).
+-- If @a@ has an @'Ord'@ instance associated with it then comparing two
+-- values thus wrapped will give you the opposite of their normal sort order.
+-- This is particularly useful when sorting in generalised list comprehensions,
+-- as in: @then sortWith by 'Down' x@.
+newtype Down a = Down a deriving (Eq)
+
+instance Data.Ord.Ord a => Data.Ord.Ord (Down a) where
+    compare (Down x) (Down y) = y `Data.Ord.compare` x
