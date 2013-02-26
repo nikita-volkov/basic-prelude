@@ -99,6 +99,15 @@ module CorePrelude
     , (Control.Arrow.***)
     , (Control.Arrow.&&&)
     , (Control.Category.>>>)
+    , (Control.Arrow.^>>)
+    , (Control.Arrow.>>^)
+    , (Control.Category.<<<)
+    , (Control.Arrow.^<<)
+    , (Control.Arrow.<<^)
+    , Control.Arrow.left
+    , Control.Arrow.right
+    , (Control.Arrow.+++)
+    , (Control.Arrow.|||)
       -- ** Maybe
     , Data.Maybe.mapMaybe
     , Data.Maybe.catMaybes
