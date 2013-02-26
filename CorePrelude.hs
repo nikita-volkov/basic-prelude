@@ -98,6 +98,7 @@ module CorePrelude
     , Control.Arrow.second
     , (Control.Arrow.***)
     , (Control.Arrow.&&&)
+    , (Control.Category.>>>)
       -- ** Maybe
     , Data.Maybe.mapMaybe
     , Data.Maybe.catMaybes
